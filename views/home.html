@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Spring Boot Demo</title>
+  <link href="./jsviewer/css/jsViewer.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+  <h2>Spring Boot Demo</h2>
+  <form>
+    <label for="who">Username:</label>
+    <input type="text" id="who" name="who"></input>
+    <label for="how">Password:</label>
+    <input type="text" id="how" name="how"></input>
+    <label>Role:</label>
+    <input type="radio" name="role" id="user" value="user" checked></input>
+    <label for="user">User</label>
+    <input type="radio" name="role" id="vip" value="vip"></input>
+    <label for="vip">VIP</label>
+  </form>
+  <button id="regist">注册</button>
+  <form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"></input>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password"></input>
+  </form>
+  <button id="login">登录</button>
+  <form>
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName"></input>
+    <br/>
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber"></input>
+    <br/>
+    <label for="province">Address:</label>
+    <input type="text" id="province" name="province"></input>
+    <input type="text" id="city" name="city"></input>
+    <input type="text" id="detail" name="detail"></input>
+    <br/>
+    <button id="upload">上传文件</button>
+    <input type="file" id="attachment" name="attachment" multiple="multiple"></input>
+    <ul id="fileList"></ul>
+  </form>
+  <button id="submit">提交</button>
+  <button id="refresh">刷新</button>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>FullName</th>
+        <th>PhoneNumber</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+  <ul id="filesDownload"></ul>
+  <div id="message"></div>
+  <div id="preview-container">
+    <p id="preview-close">×</p>
+    <div id="preview"></div>
+  </div>
+  <div id="preview-document"></div>
+
+  <div>
+    <h3>Simple WebSocket</h3>
+    <div class="">
+      <button id="open-simple-ws">开启</button>
+      <button id="simple-ws-close">关闭</button>
+      <span id="simple-ws-status">关闭了</span>
+    </div>
+    <input type="text" id="simple-ws-msg" name="simpleWsMsg">
+    <button id="simple-ws-send">发送给</button>
+    <input type="text" id="simple-ws-receive-users" name="simpleWsSendTo">
+    <ul id="simple-ws-receive"></ul>
+  </div>
+  <div>
+    <h3>STOMP WebSocket</h3>
+    <div class="">
+      <button id="open-stomp-ws">开启</button>
+      <button id="stomp-ws-close">关闭</button>
+      <span id="stomp-ws-status">关闭了</span>
+    </div>
+    <input type="text" id="stomp-ws-msg" name="stompWsMsg">
+    <button id="stomp-ws-send">发送给</button>
+    <input type="text" id="stomp-ws-receive-users" name="stompWsSendTo">
+    <ul id="stomp-ws-receive"></ul>
+  </div>
+
+  <script src="./axios.0.18.0.min.js"></script>
+  <script src="./pdf.2.0.550.js"></script>
+  <script type="text/javascript" src="./jsviewer/scripts/_lib/jquery.1.12.3.min.js"></script>
+  <script type="text/javascript" src="./jsviewer/scripts/docxjs/DocxJS.bundle.min.js"></script>
+  <script type="text/javascript" src="./jsviewer/scripts/celljs/CellJS.bundle.min.js"></script>
+  <script type="text/javascript" src="./jsviewer/scripts/slidejs/SlideJS.bundle.min.js"></script>
+  <script type="text/javascript" src="./jsviewer/scripts/pdfjs/PdfJS.bundle.min.js"></script>
+  <script src="./mammoth.browser.js"></script>
+  <script src="./stomp.2.3.3.min.js"></script>
+
+  <script type="module" src="./home.js"></script>
+  <script type="module" src="./websocket.js"></script>
+</body>
+
+</html>

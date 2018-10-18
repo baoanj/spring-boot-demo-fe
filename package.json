@@ -1,0 +1,23 @@
+{
+  "name": "koa-demo",
+  "version": "1.0.0",
+  "description": "Koa2 Demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "baoanj",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy": "^1.17.0",
+    "koa": "^2.5.2",
+    "koa-proxies": "^0.7.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
