@@ -5,7 +5,6 @@ const static = require('koa-static');
 const proxy = require('koa-proxies');
 const app = new Koa();
 const router = new Router();
-const http = require('http');
 const httpProxy = require('http-proxy');
 const wsproxy = httpProxy.createProxyServer();
 
@@ -33,5 +32,5 @@ const server = app.listen(3000, () => {
 });
 
 server.on('upgrade', (req, socket, head) => {
-  wsproxy.ws(req, socket, head, { target: `ws://${HOST}` })
+  wsproxy.ws(req, socket, head, { target: `ws://${HOST}` });
 });
