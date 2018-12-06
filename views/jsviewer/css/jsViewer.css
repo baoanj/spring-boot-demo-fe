@@ -1,49 +1,5 @@
 @import "./awesome-dings.css";
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-:after,
- :before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 14px;
-  overflow-x: hidden;
-}
-
-body {
-  font-weight: 400;
-  font-size: 1rem;
-  font-family: 'Noto Sans KR', sans-serif;
-  letter-spacing: -0.4px;
-  color: #555;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #fff;
-  margin: 0 auto;
-}
-
-button {
-  outline: none;
-  cursor: pointer;
-  border-color: transparent;
-}
-
-p {
-  display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-}
-
 #modal {
   position: fixed;
   top: 0;

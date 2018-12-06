@@ -1,6 +1,6 @@
 import { $e, $v, messageBox } from './utils.js';
 
-$e('#open-contact-ws').onclick = () => {
+$e('#open-contact-ws-jms').onclick = () => {
   const ws = new WebSocket(`ws://${location.host}/api/ws/jms`);
   const stomp = Stomp.over(ws);
 
@@ -10,13 +10,36 @@ $e('#open-contact-ws').onclick = () => {
     });
   }, err => {
     console.log(err);
+    messageBox(err);
   });
 
-  $e('#close-contact-ws').onclick = () => {
+  $e('#close-contact-ws-jms').onclick = () => {
     stomp.disconnect();
     ws.close();
-  }
-}
+  };
+};
+
+$e('#open-contact-ws-amqp').onclick = () => {
+  const ws = new WebSocket(`ws://${location.host}/api/ws/amqp`);
+  const stomp = Stomp.over(ws);
+
+  stomp.connect({}, frame => {
+    stomp.subscribe("/topic/newContact", message => {
+      messageBox(message.body + '提交了新的Contact');
+    });
+    stomp.subscribe("/user/topic/newContact", message => {
+      messageBox(message.body + '提交了新的Contact');
+    });
+  }, err => {
+    console.log(err);
+    messageBox(err);
+  });
+
+  $e('#close-contact-ws-amqp').onclick = () => {
+    stomp.disconnect();
+    ws.close();
+  };
+};
 
 $e('#open-simple-ws').onclick = () => {
   const ws = new WebSocket(`ws://${location.host}/api/ws/simple`);
@@ -24,7 +47,7 @@ $e('#open-simple-ws').onclick = () => {
   ws.onopen = () => {
     $e('#simple-ws-status').innerHTML = '开启中';
     console.log('Simple WebSocket Open!');
-  }
+  };
 
   ws.onmessage = e => {
     try {
@@ -34,16 +57,16 @@ $e('#open-simple-ws').onclick = () => {
     } catch (err) {
       messageBox(e.data);
     }
-  }
+  };
 
   ws.onerror = error => {
     console.log(error);
-  }
+  };
 
   ws.onclose = () => {
     $e('#simple-ws-status').innerHTML = '关闭了';
     console.log('Simple WebSocket Close!');
-  }
+  };
 
   $e('#simple-ws-send').onclick = () => {
     if (ws.readyState === ws.OPEN) {
@@ -53,11 +76,11 @@ $e('#open-simple-ws').onclick = () => {
       appendChatMsg(`Send: ${sendMsg.message} - ${new Date(sendMsg.time)
         .toLocaleString()} - 我`);
     }
-  }
+  };
 
   $e('#simple-ws-close').onclick = () => {
     ws.close();
-  }
+  };
 
   function appendChatMsg(msg) {
     const liElm = document.createElement('li');
@@ -91,13 +114,13 @@ $e('#open-stomp-ws').onclick = () => {
       appendChatMsg(`Send: ${sendMsg.message} - ${new Date(sendMsg.time)
         .toLocaleString()} - 我`);
     }
-  }
+  };
 
   $e('#stomp-ws-close').onclick = () => {
     stomp.disconnect();
     ws.close();
     $e('#stomp-ws-status').innerHTML = '关闭了';
-  }
+  };
 
   function appendChatMsg(msg) {
     const liElm = document.createElement('li');

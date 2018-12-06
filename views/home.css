@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 20px;
+}
+
 #message {
   position: fixed;
   top: 20px;

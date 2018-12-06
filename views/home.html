@@ -32,8 +32,12 @@
   </form>
   <button id="login">登录</button>
   <div>
-    <button id="open-contact-ws">开启全局通知</button>
-    <button id="close-contact-ws">关闭全局通知</button>
+    <button id="open-contact-ws-jms">开启全局通知(JMS)</button>
+    <button id="close-contact-ws-jms">关闭全局通知(JMS)</button>
+  </div>
+  <div>
+    <button id="open-contact-ws-amqp">开启全局通知(AMQP)</button>
+    <button id="close-contact-ws-amqp">关闭全局通知(AMQP)</button>
   </div>
   <form>
     <label for="fullName">Full Name:</label>
@@ -51,7 +55,8 @@
     <input type="file" id="attachment" name="attachment" multiple="multiple"></input>
     <ul id="fileList"></ul>
   </form>
-  <button id="submit">提交</button>
+  <button id="submit">提交并提醒</button>
+  <input type="text" id="noticeUsers" name="noticeUsers"></input>
   <button id="refresh">刷新</button>
   <table>
     <thead>

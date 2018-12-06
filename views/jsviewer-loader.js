@@ -17,7 +17,7 @@ function afterRender(file, fileType, instance) {
   $docxjsWrapper.style.height = 'calc(100% - 65px)';
 
   const loadingNode = document.createElement("div");
-  loadingNode.setAttribute("class", 'docx-loading');
+  loadingNode.setAttribute('class', 'docx-loading');
   $docxjsWrapper.parentNode.insertBefore(loadingNode, $docxjsWrapper);
 
   function endCallBackFn(result) {

@@ -1,5 +1,4 @@
-import { SimpleFormData, isArray, isObject, isFile, $e, $v, escapeHTML,
-  base64ToArrayBuffer, messageBox } from './utils.js';
+import { SimpleFormData, $e, $v, base64ToArrayBuffer, messageBox } from './utils.js';
 import { previewPDF, previewDocx } from './preview.js';
 import { previewDocument } from './jsviewer-loader.js';
 
@@ -41,6 +40,7 @@ window.onload = () => {
     const province = $v('#province');
     const city = $v('#city');
     const detail = $v('#detail');
+    const noticeUsers = $v('#noticeUsers').split(' ').filter(item => item !== '');
 
     const formData = new SimpleFormData({
       upload_files: fileList,
@@ -50,7 +50,8 @@ window.onload = () => {
         province,
         city,
         detail
-      }
+      },
+      notice_users: noticeUsers
     });
 
     axios.post('/api/contact/createWithFile', formData).then(({ data }) => {
